@@ -1,37 +1,38 @@
-import React from 'react';
 import moment from "moment";
 import styled, { keyframes } from 'styled-components';
 
 function MoviesDetailComponent(props) {
     const { movie } = props;
-    console.log(movie);
 
     return (            
-        <MoviesDetailModal className="modal">
-        <div className="container" 
-            style={
-                    movie ? {backgroundImage: `url('https://api.themoviedb.org/3/movie/${movie.id}?language=en-US/${movie.backdrop_path || movie.poster_path}')`,
-                            backgroundSize: 'cover'
-                    } : {}
-                }
-        >
-            <div className="movieInfo">
-                <h1 className="movieTitle">{movie && (movie.title || movie.name)}</h1>
-                <p className="statistical">
-                    <span className="rating">Rating: {movie && movie.vote_average}%</span>
-                    <span className="popularity">Popularity: {movie && movie.popularity}</span>
-                </p>
-
-                <p className="releaseDate">Release Date: {movie && 
-                    (moment(movie.release_date).format('DD/MM/YYYY') || 
-                    moment(movie.first_air_date).format('DD/MM/YYYY'))
+        <MoviesDetailModal>
+            <div className="backdrop"></div>
+            <div className="modal" 
+                style={
+                        movie ? {backgroundImage: `url('https://api.themoviedb.org/3/movie/${movie.id}?language=en-US/${movie.backdrop_path || movie.poster_path}')`,
+                                backgroundSize: 'cover'
+                        } : {}
                     }
-                </p>
+            >
+                <div className="container">
+                    <div className="movieInfo">
+                        <h1 className="movieTitle">{movie && (movie.title || movie.name)}</h1>
+                        <p className="statistical">
+                            <span className="rating">Rating: {movie && movie.vote_average}%</span>
+                            <span className="popularity">Popularity: {movie && movie.popularity}</span>
+                        </p>
 
-                <p className="runtime">Runtime: {movie && (movie.runtime || movie.episode_run_time)}</p>
-                <p className="overview">{movie?.overview??""} </p>
+                        <p className="releaseDate">Release Date: {movie && 
+                            (moment(movie.release_date).format('DD/MM/YYYY') || 
+                            moment(movie.first_air_date).format('DD/MM/YYYY'))
+                            }
+                        </p>
+
+                        <p className="runtime">Runtime: {movie && (movie.runtime || movie.episode_run_time)}</p>
+                        <p className="overview">{movie?.overview??""} </p>
+                    </div>
+                </div>
             </div>
-        </div>
         </MoviesDetailModal>
     )
 }

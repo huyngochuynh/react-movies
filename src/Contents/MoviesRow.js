@@ -2,10 +2,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useRef } from 'react';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
 import { Smooth } from "../utils";
 import { useViewport } from "../components/hooks";
-
 
 function MoviesRow(props) {
   const { movies, title, isNetflix, idSection } = props;
@@ -69,7 +67,8 @@ function MoviesRow(props) {
                     </Link>
                   </div>
                 )
-              }  
+            }
+            return null;
             }
           )
         }
@@ -125,7 +124,6 @@ const MovieRowContainer = styled.div `
       font-size: 50px;
       transition: all 1s linear;
     }
-
   }
 
   .btnRight {
@@ -170,6 +168,9 @@ const MovieSlider = styled.div `
   padding-top: 30px;
   padding-bottom: 30px;
   scroll-behavior: smooth;
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
 
   &:hover .movieItem {
     opacity: 0.5:
@@ -212,3 +213,4 @@ const MovieSlider = styled.div `
     }
   }
 `;
+

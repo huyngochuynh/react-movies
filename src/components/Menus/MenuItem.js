@@ -1,4 +1,3 @@
-import React from 'react';
 import { randomRgbaColor } from '../../utils';
 import { Link } from "react-scroll";
 

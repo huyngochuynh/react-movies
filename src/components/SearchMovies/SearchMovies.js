@@ -5,21 +5,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { getSearchMovies, getMovieDetails } from '../store/actions';
 
+const useQuery = () => new URLSearchParams(useLocation().search);
 
 function SearchMovies(props) {
-    const useQuery = () => new URLSearchParams(useLocation().search);
     const [windowWidth] = useViewport();
     const dispatch = useDispatch();
     const { SearchMovies } = useSelector(state => state.infoMovies);
     const keywords = useQuery().get('keywords');
     console.log(keywords)
-
+    
     useEffect(() => {
-      if (keywords) dispatch(getSearchMovies(keywords)) 
-    }, [keywords, dispatch])
+        if (keywords) dispatch(getSearchMovies(keywords))
+        }, [keywords, dispatch])
     
-    
-
 
   return (
     <SearchPane>
@@ -44,14 +42,14 @@ function SearchMovies(props) {
                                     <div 
                                         className="movieItem" 
                                         key={index}
-                                        onClick={() => dispatch (getMovieDetails(movie.belongs_to_collection.name))} 
+                                        onClick={() => dispatch (getMovieDetails(movie.name))} 
                                     >
                                         <img src={imageUrl} alt={movie.title || movie.name} />
                                         <span>{movie.title || movie.name}</span>
                                     </div>
                                 )}
-                            }
-                        )
+                            return null;
+                        })
                     }    
                 </div>
                 ) : (

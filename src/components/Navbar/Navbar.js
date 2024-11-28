@@ -63,9 +63,9 @@ const Navigation = styled.div`
     top: 0;
     transition-timing-function: ease-in;
     transition: all 1s;
-    z-index: 20;
+    z-index: 200;
 
-    @media only sreen and (max-width: 600px) {
+    @media only screen and (max-width: 600px) {
         height: 100%;
     }
 
@@ -76,10 +76,6 @@ const Navigation = styled.div`
         flex-direction: row;
         justify-content: flex-start;
         height: 100%;
-
-        @media only screen and (max-width: 600px) {
-            flex-direction: column;
-        }
 
         .logo {
             width: 145px;

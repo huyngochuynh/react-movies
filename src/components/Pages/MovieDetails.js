@@ -7,7 +7,7 @@ import MoviesDetailComponent from "../MoviesDetail/MoviesDetailComponent";
 function MoviesDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { MovieDetail } = useSelector(state => state.infoMovies);
+  const { GetMovieDetails } = useSelector(state => state.infoMovies);
 
   useEffect(() => {
     if (id.length > 0) {
@@ -17,7 +17,7 @@ function MoviesDetails() {
 
   return (
     <div>
-      <MoviesDetailComponent movie={MovieDetail} />
+      <MoviesDetailComponent movie={GetMovieDetails} />
     </div>
   )
 }
