@@ -11,11 +11,13 @@ function App () {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route exact path = '/' element={<Home />} />
-          <Route path='/search' element={<Search />} />
-          <Route path="/movies/:id" element={<MovieDetails />} />
-        </Routes>
+        <div style={{ paddingTop: '80px', backgroundColor: 'black' }}>
+          <Routes>
+            <Route exact path = '/' element={<Home />} />
+            <Route path='/search' element={<Search />} />
+            <Route path="/movies/:id" element={<MovieDetails />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </div>
   )
